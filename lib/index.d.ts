@@ -6,7 +6,7 @@
  **  @Description
  ***********************************************************/
 import { SocketConfig, Transports } from "./types/socketWrapper";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 export declare const DefaultSocketConfig: {
     url: string;
     path: string;
@@ -23,7 +23,7 @@ export declare const DefaultSocketConfig: {
 };
 export declare class SocketWrapper {
     private Config;
-    tokenUpdater: Observable<string>;
+    tokenUpdater: BehaviorSubject<string | null>;
     socket: any;
     url: string;
     auth: boolean | undefined;

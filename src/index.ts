@@ -7,9 +7,8 @@
  ***********************************************************/
 
 import io from "socket.io-client";
-import { EventEmitter } from "events";
 import { SocketConfig, Transports } from "./types/socketWrapper";
-import { Observable, share } from "rxjs";
+import { BehaviorSubject, Observable, share } from "rxjs";
 
 export const DefaultSocketConfig = {
   url: "",
@@ -27,7 +26,9 @@ export const DefaultSocketConfig = {
 };
 
 export class SocketWrapper {
-  public tokenUpdater: Observable<string> = new Observable();
+  public tokenUpdater: BehaviorSubject<string | null> = new BehaviorSubject<
+    string | null
+  >(null);
   public socket: any;
   public url: string;
   public auth: boolean | undefined;
@@ -46,7 +47,7 @@ export class SocketWrapper {
     if ((Config && !Config.auth) || !Config) {
       this.onReconnect();
     } else {
-      this.tokenUpdater.subscribe((token: string) => {
+      this.tokenUpdater.subscribe((token: string | null) => {
         if (this.socket) {
           this.disconnect();
         }
