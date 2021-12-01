@@ -47,3 +47,4 @@ export declare class SocketWrapper {
     private onReconnect;
 }
 export default SocketWrapper;
+export { SocketConfig, Transports };

@@ -177,3 +177,4 @@ export class SocketWrapper {
 }
 
 export default SocketWrapper;
+export { SocketConfig, Transports };
