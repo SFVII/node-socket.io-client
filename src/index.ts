@@ -173,12 +173,6 @@ export class SocketWrapper {
       console.log("socket does not exist");
     }
   }
-
-  private redirectLogin(loginPage: string) {
-    if (this.socket && loginPage) {
-      this.socket.on("session-time-out", (msg: any) => {
-        console.log("session-time-out");
-      });
-    }
-  }
 }
+
+export default SocketWrapper;

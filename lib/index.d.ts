@@ -45,5 +45,5 @@ export declare class SocketWrapper {
     fromEvent<T>(eventName: string): Observable<any>;
     fromOneTimeEvent<T>(eventName: string): Promise<any>;
     private onReconnect;
-    private redirectLogin;
 }
+export default SocketWrapper;
