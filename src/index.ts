@@ -6,7 +6,7 @@
  **  @Description
  ***********************************************************/
 
-import io from "socket.io-client";
+import { io } from "socket.io-client";
 import { SocketConfig, Transports } from "./types/socketWrapper";
 import { BehaviorSubject, Observable, share } from "rxjs";
 
