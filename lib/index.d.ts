@@ -37,7 +37,7 @@ export declare class SocketWrapper {
     of(namespace: string): void;
     on(eventName: string, callback: (data: any) => void): void;
     once(eventName: string, callback: (data: any) => void): void;
-    connect(): any;
+    connect(): import("socket.io-client").Socket<import("@socket.io/component-emitter").DefaultEventsMap, import("@socket.io/component-emitter").DefaultEventsMap>;
     disconnect(close?: any): any;
     emit(eventName: string, data?: any, callback?: (data: any) => void): any;
     removeListener(eventName: string, callback?: () => void): any;

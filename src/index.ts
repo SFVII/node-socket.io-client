@@ -119,8 +119,20 @@ export class SocketWrapper {
 
   connect() {
     console.log("Config", this.SocketConfig);
-    const ioSocket = (io as any).default ? (io as any).default : io;
-    return ioSocket(this.url, this.SocketConfig).connect();
+    // const ioSocket = (io as any) ? (io as any) : io;
+    return io(this.url, {
+      reconnection: this.SocketConfig.reconnection,
+      reconnectionAttempts: this.SocketConfig.reconnectionAttempts,
+      reconnectionDelay: this.SocketConfig.reconnectionDelay,
+      reconnectionDelayMax: this.SocketConfig.reconnectionDelay,
+      randomizationFactor: this.SocketConfig.randomizationFactor,
+      timeout: this.SocketConfig.timeout,
+      autoConnect: this.SocketConfig.autoConnect,
+      query: this.SocketConfig.query,
+      extraHeaders: this.SocketConfig.extraHeaders,
+      transports: this.SocketConfig.transports,
+      transportOptions: this.SocketConfig.transportOptions,
+    }).connect();
   }
 
   disconnect(close?: any): any {
