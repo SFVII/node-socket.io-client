@@ -1,0 +1,39 @@
+{
+  "name": "node-socket-io",
+  "version": "1.0.0",
+  "description": "client socket io for nodejs, use case electron",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "lint": "eslint . --ext .ts",
+    "tsc": "tsc",
+    "prettier": "prettier --write \"src/**/*.ts\"",
+    "build": "npm-run-all clean prettier lint tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SFVII/node-socket.io-client.git"
+  },
+  "files": [
+    "/lib/**/*"
+  ],
+  "author": "Brice DAUPIARD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SFVII/node-socket.io-client/issues"
+  },
+  "homepage": "https://github.com/SFVII/node-socket.io-client#readme",
+  "dependencies": {
+    "rxjs": "^7.4.0",
+    "socket.io-client": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.11",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "eslint": "^8.3.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.0",
+    "rimraf": "^3.0.2"
+  }
+}
