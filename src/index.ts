@@ -43,9 +43,10 @@ export class SocketWrapper {
     }
 
     this.url = !Config || (Config && !Config.url) ? "" : Config.url;
-    this.socket = this.connect();
+
     if ((Config && !Config.auth) || !Config) {
-      this.onReconnect();
+      this.socket = this.connect();
+      //this.onReconnect();
     } else {
       this.tokenUpdater.subscribe((token: string | null) => {
         if (this.socket) {
